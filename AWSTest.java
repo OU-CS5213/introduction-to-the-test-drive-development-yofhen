@@ -119,5 +119,10 @@ class AWSTest {
 	
 	}
 
+	@Test
+	void testIsAllPositive() {
+		fail("Not yet implemented");
+	}
+
 
 }
