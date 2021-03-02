@@ -6,10 +6,10 @@ Try to *check* the *checkboxes* as you go, and commit changes to the Readme.md a
 ## Part 1
 There are a few tests that are not finished. And so, you will have a few tasks here.
 You will make frequent commits:
-* Create one test, and make sure it fails
-* Commit to GitHub
-* Write your code to pass the test
-* Commit to GitHub
+* [x] Create one test, and make sure it fails
+* [x] Commit to GitHub
+* [x] Write your code to pass the test
+* [x] Commit to GitHub
 ## Part 2
 * [ ] Create a GitHub action to run your tests from Part 1
 ## Part 3 

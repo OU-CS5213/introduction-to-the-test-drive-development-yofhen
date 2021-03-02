@@ -57,7 +57,7 @@ public class AWS {
 	}
 	
 	public void clear() {
-		
+		values = new int[0];
 	}
 
 }
