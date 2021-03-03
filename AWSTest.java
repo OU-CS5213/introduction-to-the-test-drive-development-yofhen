@@ -119,5 +119,14 @@ class AWSTest {
 	
 	}
 
+	@Test
+	void testClear() {
+		int[] org = originalAWS.getValues();
+		assertEquals(org.length, original.length);
+		originalAWS.clear();
+		int[] org1 = originalAWS.getValues();
+		assertEquals(org1.length, 0);		
+	}
+
 
 }

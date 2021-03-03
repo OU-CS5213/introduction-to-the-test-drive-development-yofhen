@@ -55,5 +55,9 @@ public class AWS {
 		}
 		values = newArray;
 	}
+	
+	public void clear() {
+		values = new int[0];
+	}
 
 }
