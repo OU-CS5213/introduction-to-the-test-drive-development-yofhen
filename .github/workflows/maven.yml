@@ -10,8 +10,9 @@ on:
     branches: [ main ]
 
 jobs:
+  
+   
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,4 +22,5 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn --batch-mode --update-snapshots verify
+    
