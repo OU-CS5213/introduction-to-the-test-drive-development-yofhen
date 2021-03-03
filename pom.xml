@@ -12,4 +12,10 @@
 	<scm>
 		<url>https://github.com/OU-CS5213/introduction-to-the-test-drive-development-yofhen</url>
 	</scm>
+	<dependency>
+		<groupId>org.junit-pioneer</groupId>
+		<artifactId>junit-pioneer</artifactId>
+		<version><!--...--></version>
+		<scope>test</scope>
+	</dependency>
 </project>
