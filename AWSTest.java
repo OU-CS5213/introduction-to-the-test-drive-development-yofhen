@@ -128,5 +128,21 @@ class AWSTest {
 		assertEquals(org1.length, 0);		
 	}
 
+	@Test
+	void testRemoveBiggerThan() {
+		originalAWS.removeBiggerThan(2);
+		int[] result = originalAWS.getValues();
+		assertEquals(3, result.length);
+		assertEquals(1, result[0]);
+		assertEquals(2, result[1]);
+		assertEquals(FILLER_VALUE, result[2]);
+		
+		originalAWS.removeBiggerThan(1);
+		result = originalAWS.getValues();
+		assertEquals(3, result.length);
+		assertEquals(1, result[0]);
+		assertEquals(FILLER_VALUE, result[1]);
+		assertEquals(FILLER_VALUE, result[2]);
+	}
 
 }
