@@ -60,4 +60,18 @@ public class AWS {
 		values = new int[0];
 	}
 
+	public void removeBiggerThan(int threshold) {
+		for(int i = 0; i <values.length; i++ ) {
+			if (values[i] > threshold) values[i] = FILLER_VALUE;
+		}
+	}
+
+	public void stepMultiplier() {
+		for(int i = 0; i <values.length; i++ ) {
+			if (values[i] < 10) values[i] = values[i] * 2;
+			else if (values[i] > 10 && values[i] < 20) values[i] = values[i] * 4;
+			else if (values[i] > 20 && values[i] < 100) values[i] = values[i] * 100;
+		}
+	}
+
 }

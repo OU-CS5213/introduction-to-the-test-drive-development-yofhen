@@ -128,5 +128,41 @@ class AWSTest {
 		assertEquals(org1.length, 0);		
 	}
 
+	@Test
+	void testRemoveBiggerThan() {
+		originalAWS.removeBiggerThan(2);
+		int[] result = originalAWS.getValues();
+		assertEquals(3, result.length);
+		assertEquals(1, result[0]);
+		assertEquals(2, result[1]);
+		assertEquals(FILLER_VALUE, result[2]);
+		
+		originalAWS.removeBiggerThan(1);
+		result = originalAWS.getValues();
+		assertEquals(3, result.length);
+		assertEquals(1, result[0]);
+		assertEquals(FILLER_VALUE, result[1]);
+		assertEquals(FILLER_VALUE, result[2]);
+	}
+
+	@Test
+	void testStepMultiplier() {
+		originalAWS.stepMultiplier();
+		int[] result = originalAWS.getValues();
+		assertEquals(3, result.length);
+		assertEquals(2, result[0]);
+		assertEquals(4, result[1]);
+		assertEquals(6, result[2]);
+		
+		int[] test = {5, 15, 50, 150};
+		originalAWS.setValues(test);
+		originalAWS.stepMultiplier();
+		result = originalAWS.getValues();
+		assertEquals(test.length, result.length);
+		assertEquals(10, result[0]);
+		assertEquals(60, result[1]);
+		assertEquals(5000, result[2]);
+		assertEquals(150, result[3]);
+	}
 
 }
