@@ -1,7 +1,7 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>.</groupId>
-	<artifactId>introduction-to-the-test-drive-development-yofhen</artifactId>
+	<artifactId>.</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -9,11 +9,11 @@
 	<description>The Test Driven Development application</description>
 	<url>http://maven.apache.org</url>
 	
-	<resource>
-		<targetPath>${project.basedir}</targetPath>
-		<file>${project.basedir}/AWSTest.java</file>
+#	<resource>
+#		<targetPath>${project.basedir}</targetPath>
+#		<file>${project.basedir}/AWSTest.java</file>
 #		<destFileName>test.xml</destFileName>
-	</resource>
+#	</resource>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
