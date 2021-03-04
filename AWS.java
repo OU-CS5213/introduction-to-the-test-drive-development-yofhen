@@ -66,4 +66,8 @@ public class AWS {
 		}
 	}
 
+	public void stepMultiplier() {
+		
+	}
+
 }
