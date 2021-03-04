@@ -1,4 +1,8 @@
+package edu.ou.sep.introduction_to_the_test_drive_development_yofhen;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,17 +20,26 @@ class AWSTest {
 
 	@Test
 	void testGetValues() {
-		fail("Not yet implemented");
+		int[] result = originalAWS.getValues();
+		assertEquals(result[0], original[0]);
+		assertEquals(result[1], original[1]);
+		assertEquals(result[2], original[2]);
 	}
 
 	@Test
 	void testSetValues() {
-		fail("Not yet implemented");
+		int[] test = {5,6,7};
+		originalAWS.setValues(test);
+		int[] result = originalAWS.getValues();
+		assertEquals(result[0], test[0]);
+		assertEquals(result[1], test[1]);
+		assertEquals(result[2], test[2]);
 	}
 
 	@Test
 	void testToString() {
-		fail("Not yet implemented");
+		String result = originalAWS.toString();
+		assertEquals(result, "AWS [values=" + Arrays.toString(original) + "]");
 	}
 
 	@Test
@@ -89,11 +102,9 @@ class AWSTest {
 		assertEquals(expectedValue, a);
 		assertEquals(expectedValue, b);
 		assertEquals(expectedValue, c);
-		assertEquals(first, result[0]);
-		 
-		
-	
+		assertEquals(first, result[0]);	
 	}
+	
 	@Test
 	void testFillAndExpandWithNegative() {
 		int position = 1;
@@ -102,7 +113,7 @@ class AWSTest {
 		int[] org = originalAWS.getValues();
 		int expectedValue = org[position];
  		int first = org[0];
-		int expected = originalAWS.getValues().length + numberOfTimes;
+		int expected = originalAWS.getValues().length + Math.abs(numberOfTimes);
 		originalAWS.fillAndExpand(position, numberOfTimes);
 		int[] result = originalAWS.getValues();
 		assertEquals(expected, result.length);
@@ -118,6 +129,50 @@ class AWSTest {
 
 	
 	}
+	
+	@Test
+	void testClear() {
+		int[] org = originalAWS.getValues();
+		assertEquals(org.length, original.length);
+		originalAWS.clear();
+		int[] org1 = originalAWS.getValues();
+		assertEquals(org1.length, 0);		
+	}
+	
+	@Test
+	void testRemoveBiggerThan() {
+		originalAWS.removeBiggerThan(2);
+		int[] result = originalAWS.getValues();
+		assertEquals(3, result.length);
+		assertEquals(1, result[0]);
+		assertEquals(2, result[1]);
+		assertEquals(FILLER_VALUE, result[2]);
+		
+		originalAWS.removeBiggerThan(1);
+		result = originalAWS.getValues();
+		assertEquals(3, result.length);
+		assertEquals(1, result[0]);
+		assertEquals(FILLER_VALUE, result[1]);
+		assertEquals(FILLER_VALUE, result[2]);
+	}
 
-
+	@Test
+	void testStepMultiplier() {
+		originalAWS.stepMultiplier();
+		int[] result = originalAWS.getValues();
+		assertEquals(3, result.length);
+		assertEquals(2, result[0]);
+		assertEquals(4, result[1]);
+		assertEquals(6, result[2]);
+		
+		int[] test = {5, 15, 50, 150};
+		originalAWS.setValues(test);
+		originalAWS.stepMultiplier();
+		result = originalAWS.getValues();
+		assertEquals(test.length, result.length);
+		assertEquals(10, result[0]);
+		assertEquals(60, result[1]);
+		assertEquals(5000, result[2]);
+		assertEquals(150, result[3]);
+	}
 }
