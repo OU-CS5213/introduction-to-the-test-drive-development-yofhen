@@ -1,4 +1,4 @@
-package sep;
+package sep.sep;
 import java.util.Arrays;
 
 public class AWS {
