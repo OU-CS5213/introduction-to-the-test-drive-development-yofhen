@@ -7,7 +7,11 @@
 
 	<name>introduction-to-the-test-drive-development-yofhen</name>
 	<description>The Test Driven Development application</description>
-	<url>https://github.com/OU-CS5213/introduction-to-the-test-drive-development-yofhen</url>	
+	<url>http://maven.apache.org</url>	
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<dependencies>
 		<dependency>
