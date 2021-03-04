@@ -1,5 +1,8 @@
 package edu.ou.sep.introduction_to_the_test_drive_development_yofhen;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,17 +20,26 @@ class AWSTest {
 
 	@Test
 	void testGetValues() {
-		fail("Not yet implemented");
+		int[] result = originalAWS.getValues();
+		assertEquals(result[0], original[0]);
+		assertEquals(result[1], original[1]);
+		assertEquals(result[2], original[2]);
 	}
 
 	@Test
 	void testSetValues() {
-		fail("Not yet implemented");
+		int[] test = {5,6,7};
+		originalAWS.setValues(test);
+		int[] result = originalAWS.getValues();
+		assertEquals(result[0], test[0]);
+		assertEquals(result[1], test[1]);
+		assertEquals(result[2], test[2]);
 	}
 
 	@Test
 	void testToString() {
-		fail("Not yet implemented");
+		String result = originalAWS.toString();
+		assertEquals(result, "AWS [values=" + Arrays.toString(original) + "]");
 	}
 
 	@Test
@@ -90,11 +102,9 @@ class AWSTest {
 		assertEquals(expectedValue, a);
 		assertEquals(expectedValue, b);
 		assertEquals(expectedValue, c);
-		assertEquals(first, result[0]);
-		 
-		
-	
+		assertEquals(first, result[0]);	
 	}
+	
 	@Test
 	void testFillAndExpandWithNegative() {
 		int position = 1;
@@ -103,7 +113,7 @@ class AWSTest {
 		int[] org = originalAWS.getValues();
 		int expectedValue = org[position];
  		int first = org[0];
-		int expected = originalAWS.getValues().length + numberOfTimes;
+		int expected = originalAWS.getValues().length + Math.abs(numberOfTimes);
 		originalAWS.fillAndExpand(position, numberOfTimes);
 		int[] result = originalAWS.getValues();
 		assertEquals(expected, result.length);
